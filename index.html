@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gimnasio Fitness</title>
+  <link rel="stylesheet" href="estilos2.css"> <!-- Unimos el codigo css -->
+  <link rel="shortcut icon" href="icono.png" type="image/x-icon"> <!-- Agregamos imagen favicon -->
+  <style>
+    .boton-registro {
+      transition: background-color 0.3s ease;
+    }
+    .boton-registro.clicked {
+      background-color: #999;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="titulo-gimnasio">Gimnasio Fitness</h1> <!-- Titulo principal -->
+  </header>
+  
+  <main>
+    <p>Bienvenido al Gimnasio Fitness. ¡Empieza tu viaje hacia una vida más saludable hoy mismo!</p> <!-- Texto de bienvenida -->
+    <a href="registro.html" class="boton-registro">Regístrate</a> <!-- Boton que lleva a pagina de registro -->
+  </main> 
+  
+  <footer>
+    <p>&copy; 2024 Gimnasio Fitness. Todos los derechos reservados.</p> <!-- Texto para derechos de autor -->
+  </footer>
+
+  <script> // Codigo JavaScript para cambiar el texto del titulo cada 2 segundos
+    var titulos = ["Gimnasio Fitness", "Tu lugar para entrenar", "Mejora tu salud"];
+    var indice = 0;
+    var tituloElemento = document.getElementById('titulo-gimnasio');
+
+    setInterval(function() {
+      tituloElemento.textContent = titulos[indice];
+      indice = (indice + 1) % titulos.length;
+    }, 2000); // Cambia el texto cada 2 segundos (2000 milisegundos)
+  </script>
+
+<script> // Codigo Javascript para cambiar el fondo del boton de registro cada 600 ms
+  document.querySelector('.boton-registro').addEventListener('click', function(event) {
+    event.preventDefault();
+    var boton = this;
+    boton.classList.add('clicked');
+    setTimeout(function() {
+      boton.classList.remove('clicked');
+      window.location.href = boton.href; // Redirigir después del efecto
+    }, 600); // 600 milisegundos (0.6 segundos) de duración del efecto
+  });
+</script>
+</body>
+</html>
